@@ -7,14 +7,45 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    {
+    path: '/dashoard',
+    name: 'dashoard',
+    component: () => import(/* webpackChunkName: "dashoard" */ '../views/DashboardView.vue')
+   },
+   {
+    path: '/vendedores',
+    name: 'vendedores',
+    component: () => import(/* webpackChunkName: "vendedores" */ '../views/VendedoresView.vue')
+   },
+   {
+    path: '/ficha-vendedores',
+    name: 'padre-vendedores',
+    component: () => import(/* webpackChunkName: "padre-vendedores" */ '../views/PadreVendedores.vue'),
+    children: [
+      {
+        path: '',
+        name: 'ficha-vendedores',
+        component: () => import(/* webpackChunkName: "ficha_vendedores" */ '../components/ficha vendedores/FichaVendedores.vue')
+      },
+      {
+        path:'',
+        name: 'carta cliente',
+        component: () => import(/* webpackChunkName: "carta cliente" */ '../components/ficha vendedores/CarteraCliente.vue')
+      },
+      {
+        path:'',
+        name: 'cumplimiento',
+        component: () => import(/* webpackChunkName: "cumplimiento" */ '../components/ficha vendedores/Cumplimiento.vue')
+      }
+    ]
+   },
+   {
+    path: '/:catchAll(.*)',
+    name: '/Error404',
+    component: () => import(/* webpackChunKName: "Error404" */ '../views/Error404.vue')
+  },
+
+
 ]
 
 const router = createRouter({

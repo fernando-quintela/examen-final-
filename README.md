@@ -1,5 +1,11 @@
 # examen_2
 
+el email puede ser cualquiera que sea un correo valido
+```
+el password puede ser cualquiera tiene ser distinto a ''
+```
+
+
 ## Project setup
 ```
 npm install
